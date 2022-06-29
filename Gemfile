@@ -34,6 +34,8 @@ gem "shrine", "~> 3.0"
 # image sizing
 gem 'image_processing', '1.9.3'
 gem 'mini_magick', '4.9.5'
+# for authentication users
+gem 'devise'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
