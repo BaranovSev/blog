@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
   
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'users/sessions'
+  }
   root 'static_pages#home'
   get '/help', to: 'static_pages#help'
-  get '/signup', to: 'users#new'
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get '/users/edit', to: 'devise/registrations#edit'
+  resources :users, only: [:show, :edit, :update]
 end

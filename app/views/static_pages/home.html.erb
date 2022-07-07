@@ -1,5 +1,10 @@
 <!-- if logged_in show all users, if not - show registrate btn-->
+<% if user_signed_in? %>
+<h1>Welcome <%= current_user.name %> </h1>
+<% else %> 
 <div class="center">
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %> <!-- not hiding -->
-</div>
+  <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %> <!-- not hiding -->
+</div>        
+<% end %>
+
 
