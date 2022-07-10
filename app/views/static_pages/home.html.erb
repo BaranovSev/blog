@@ -1,6 +1,13 @@
 <!-- if logged_in show all users, if not - show registrate btn-->
 <% if user_signed_in? %>
-<h1>Welcome <%= current_user.name %> </h1>
+<h1>Home page</h1>
+<aside class="col-md-4">
+  <%= current_user.name %>
+  <section class="micropost_form">
+    <%= render 'microposts/micropost_form' %>
+  </section>
+</aside>
+<!-- HERE MUST BE FEED -->
 <% else %> 
 <div class="center">
   <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %> <!-- not hiding -->
