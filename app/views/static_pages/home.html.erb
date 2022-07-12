@@ -8,6 +8,10 @@
   </section>
 </aside>
 <!-- HERE MUST BE FEED -->
+    <div class="col-md-8">
+      <h3>Microposts</h3>
+      <%= render @feed_items %>
+    </div>
 <% else %> 
 <div class="center">
   <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %> <!-- not hiding -->

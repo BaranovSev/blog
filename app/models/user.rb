@@ -9,5 +9,7 @@ class User < ApplicationRecord
   presence: true,
   length: { maximum: 50 }
 
-  
+  # def self_posts
+  #   Micropost.where("user_id = ?", id)
+  # end
 end
