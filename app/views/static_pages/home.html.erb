@@ -3,6 +3,9 @@
 <h1>Home page</h1>
 <aside class="col-md-4">
   <%= current_user.name %>
+  <section class="stats">
+    <%= render 'users/stats' %>
+  </section>
   <section class="micropost_form">
     <%= render 'microposts/micropost_form' %>
   </section>

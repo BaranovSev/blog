@@ -1,7 +1,13 @@
+<% provide(:title, @user.name) %>
 <h1>
   <%= @user.name %>
 </h1>
+<section class="stats">
+  <%= render 'users/stats' %>
+  <%= render 'follow_form' if user_signed_in? %>
+</section>
     <div class="col-md-8">
       <h3>Microposts</h3>
-      <%= render @feed_items %>
+      <%= render @microposts %>
+      <%= will_paginate @microposts %>
     </div>
