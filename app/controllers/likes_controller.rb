@@ -4,7 +4,7 @@ class LikesController < ApplicationController
   
   def create
     @micropost.likes.create(user_id: current_user.id)
-    render html:"like added" # AAAAAAAAAAAAAAAAAAAAAA!!!!!!!!!!!!!!!!
+    redirect_back fallback_location: root_path
   end
 
   def destroy
@@ -12,7 +12,7 @@ class LikesController < ApplicationController
       flash[:notice] = "Cannot unlike"
     else
       @like.destroy
-      render html:"like deleted" # OMG!!!!!!!
+      redirect_back fallback_location: root_path
     end
   end
 
