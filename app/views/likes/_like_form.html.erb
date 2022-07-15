@@ -1,0 +1,9 @@
+<%= @micropost.likes.count %> <%= (@micropost.likes.count) == 1 ? 'Like' : 'Likes'%>
+    
+    <% pre_like = @micropost.likes.find { |like| like.user_id == current_user.id} %>
+    <% if pre_like %>
+      <%= button_to 'Unlike', micropost_like_path(@micropost, pre_like), method: :delete %>
+    <% else %>
+      <%= button_to 'Like', micropost_likes_path(@micropost), method: :post %>
+    <% end %>
+    
