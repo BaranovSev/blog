@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   
-  devise_for :users#, controllers: {
-  #   sessions: 'users/sessions'
-  # }
+  devise_for :users
   root 'static_pages#home'
   get '/help', to: 'static_pages#help'
   get '/users/edit', to: 'devise/registrations#edit'
@@ -12,7 +10,7 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
-  resources :microposts, only: [:create, :destroy]
+  resources :microposts, only: [:create, :destroy, :edit, :update]
   resources :microposts do
     resources :likes, only: [:create, :destroy]
   end

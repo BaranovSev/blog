@@ -1,0 +1,7 @@
+<%= form_with(model: @micropost, local: true) do |f| %>
+  <div class="field">
+    <%= f.text_area :content, placeholder: @micropost.content %>
+  </div>
+  <%= f.submit "update", class: "btn btn-primary" %>
+<% end %>
+

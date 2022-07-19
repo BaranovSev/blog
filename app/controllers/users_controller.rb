@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: [:index, :show, :following, :followers] #, :edit, :update, :destroy, :following, :followers]
+  before_action :is_admin, only: :destroy
   # before_action :correct_user, only: [:edit, :update]
-  # before_action :admin_user, only: :destroy
   
   def index
     @users = User.paginate(page: params[:page])
@@ -12,6 +12,15 @@ class UsersController < ApplicationController
     #debugger
     @microposts = @user.microposts.paginate(page: params[:page])
   end
+  
+  # def destroy
+  #   @user = User.find(params[:id])
+  #   @user.destroy
+
+  #   if @user.destroy
+  #       redirect_to root_url, notice: "User deleted."
+  #   end
+  # end
   
   def following
     @title = "Following"
@@ -25,6 +34,12 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @users = @user.followers.paginate(page: params[:page])
     render 'show_follow'
+  end
+  
+  private
+
+  def is_admin
+    current_user.admin = true
   end
 
 end
