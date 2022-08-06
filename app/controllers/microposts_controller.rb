@@ -1,6 +1,6 @@
 class MicropostsController < ApplicationController
   before_action :authenticate_user!, only: [:create, :destroy]
-  before_action :correct_user, only: :destroy
+  before_action :correct_user, only: [:destroy, :update]
   before_action :is_admin, only: :destroy
   
   def create

@@ -1,5 +1,5 @@
 <li id="micropost-<%= micropost.id %>">
-  <span class="user"><%= link_to micropost.user.name, micropost.user %></span>
+  <span class="user"><%= link_to micropost.user.name, micropost.user %> :</span>
   <span class="content">
     <%= micropost.content %>
   </span>
@@ -12,6 +12,8 @@
     <% if current_user == micropost.user %>
       <%= link_to "| edit", edit_micropost_path(micropost) %>
     <% end %>
+    <%= link_to "| comments", micropost_comments_path(micropost) %>
+
     <p><%= micropost.likes.count %> <%= (micropost.likes.count) == 1 ? 'Like' : 'Likes'%>
     
     <% pre_like = micropost.likes.find { |like| like.user_id == current_user.id} %>

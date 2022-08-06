@@ -1,0 +1,6 @@
+<%= form_with(model: @comment, url: micropost_comment_path(@comment.micropost_id, @comment.id), method: :patch) do |f| %>
+  <div class="field">
+    <%= f.text_area :content, placeholder: @comment.content %>
+  </div>
+  <%= f.submit "Update", class: "btn btn-primary" %>
+<% end %>

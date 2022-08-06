@@ -1,0 +1,10 @@
+<h1> Comment to: </h1>
+<h2> <%= render html:  @micropost.content  %> </h2>
+
+<%= render 'comments/comment_form' %>
+<h1>All comments</h1>
+<%= will_paginate %>
+  <ul class="comments">
+    <%= render @micropost.comments %>
+  </ul>
+<%= will_paginate %>

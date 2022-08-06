@@ -1,0 +1,14 @@
+<li>
+  <span class="user"><%= link_to comment.user.name, comment.user %>: </span>
+    <span class="content">
+      <%= comment.content %>
+    </span>
+  </span> 
+  <% if current_user.id == comment.user_id || current_user.admin == true %>
+    <%= link_to "delete", micropost_comment_path(comment.micropost_id, comment.id), method: :delete  %>
+  <% end %>
+  <% if current_user.id == comment.user_id %>
+    <%= link_to "| edit", edit_micropost_comment_path(comment.micropost_id, comment.id) %>
+  <% end %>
+
+</li>
