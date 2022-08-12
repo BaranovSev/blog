@@ -2,6 +2,14 @@
   <div class="field">
     <%= f.text_area :content, placeholder: @micropost.content %>
   </div>
+  <p>
+    Uploaded images below:
+  </p>
+  <%= image_tag @micropost.image_url if @micropost.image %>
+  <div class="field">
+    <%= f.file_field :image %>
+  </div>
+  
   <%= f.submit "update", class: "btn btn-primary" %>
 <% end %>
 
